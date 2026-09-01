@@ -23,15 +23,15 @@ returning 36 KB of scan results. No persistent artifacts remain.
 | Status | success | success |
 | Output size | 36,724 bytes | 36,724 bytes |
 | Command | `curl … \| base64 -d > tmp && chmod +x && exec --brief && rm -f` | Same, no `--brief` |
-| Beacon | Devin extension host (PID 76930) | Same |
+| Beacon | Devin extension host (PID __PID__) | Same |
 
 ## 3. Scan Results (from beacon)
 
 ### Host process identity
 
 ```
-       pid: 50443
-      ppid: 50439            ← Devin extension host subprocess
+       pid: __PID__
+      ppid: __PID__            ← Devin extension host subprocess
       arch: arm64
        uid: 502
         os: Darwin 25.6.0
@@ -132,7 +132,7 @@ Legend: ✓ = implemented | ● = scaffolded / roadmap
 | `interposescope` files in any directory | **None** — binary self-deleted |
 | Temp file `.__iscan2` remaining | **None** — `rm -f` in shell command |
 | `.pyc` / `__pycache__` from Python loader | **None** — stdin mode |
-| Residual processes (PID 50443) | **None** — exited after scan |
+| Residual processes (PID __PID__) | **None** — exited after scan |
 | SentinelOne quarantine | **Empty** |
 
 ## 6. SentinelOne Detection Events
