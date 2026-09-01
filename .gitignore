@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.DS_Store
+*.o
+*.dylib
+build/*.o
+node_modules/
+.env
+config.json
