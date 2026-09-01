@@ -1,0 +1,15 @@
+{
+  "version": "2.0",
+  "timestamp": 1788295366,
+  "os": "macOS",
+  "arch": "arm64",
+  "host": {"pid": 29281, "ppid": 29277, "uid": 502},
+  "images": {"total": 347, "cache": 343, "on_disk": 4},
+  "interpose_count": 0,
+  "hooks": {"checked": 90, "hooked": 0, "patched": 0},
+  "rebind_divergences": 0,
+  "anonymous_rx": 0,
+  "objc_methods": 8,
+  "telemetry_present": 8,
+  "elapsed_sec": 0.003
+}
