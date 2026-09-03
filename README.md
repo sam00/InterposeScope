@@ -585,9 +585,9 @@ Each checked API is classified into one of 17 states:
       }
     ]
   },
-  "interpose_pairs": {
+  "interpose": {
     "count": 0,
-    "pairs": []
+    "entries": []
   },
   "rebinds": {
     "count": 0,
@@ -595,14 +595,21 @@ Each checked API is classified into one of 17 states:
   },
   "hooks": {
     "checked": 228,
+    "hooked": 0,
+    "patched": 0,
+    "unknown_entry": 4,
+    "interposed": 0,
+    "rebound": 0,
+    "trie_mismatch": 0,
+    "reexport": 0,
     "entries": [
       {
         "symbol": "open",
         "category": "files",
         "state": "CLEAN",
         "address": "0x18a2b4c80",
-        "owner": "/usr/lib/libsystem_kernel.dylib",
-        "fingerprint": "0x7f3a2b1c"
+        "owner": "libsystem_kernel.dylib",
+        "fingerprint": "0x7f3a2b1c4d5e6f70"
       }
     ]
   },
@@ -612,7 +619,7 @@ Each checked API is classified into one of 17 states:
   },
   "objc_methods": {
     "count": 8,
-    "methods": [
+    "entries": [
       {
         "class": "NSURLSession",
         "selector": "dataTaskWithRequest:",
@@ -621,8 +628,8 @@ Each checked API is classified into one of 17 states:
     ]
   },
   "telemetry": {
-    "checked": 8,
-    "apis": [
+    "count": 8,
+    "entries": [
       {
         "symbol": "os_log_create",
         "status": "PRESENT",
@@ -644,11 +651,14 @@ Each checked API is classified into one of 17 states:
     "trie_mismatches": 0,
     "alias_diverged": 0,
     "images_scanned": 347,
-    "elapsed": "0.006s"
+    "elapsed_sec": 0.006
   },
+  "signed": 1,
   "verdict": "CLEAN — no user-mode modifications detected"
 }
 ```
+
+**16 top-level keys:** `version`, `timestamp`, `os`, `arch`, `host`, `images`, `interpose`, `rebinds`, `hooks`, `anonymous_rx`, `objc_methods`, `telemetry`, `unscanned`, `summary`, `signed`, `verdict`.
 
 ---
 

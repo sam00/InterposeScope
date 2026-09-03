@@ -2155,8 +2155,33 @@ static void print_json(void) {
     out("  },\n");
 
     /* Summary */
-    out("  \"elapsed_sec\": %.3f,\n", G.elapsed);
-    out("  \"signed\": %d\n", G.sign_status);
+    {
+        int hooked = 0, ue = 0, patched = 0;
+        for (int i = 0; i < G.nh; i++) {
+            if (G.hooks[i].state == ST_HOOKED) hooked++;
+            else if (G.hooks[i].state == ST_UNKNOWN_ENTRY) ue++;
+            else if (G.hooks[i].state == ST_PATCHED) patched++;
+        }
+        int total_findings = hooked + ue + patched + G.nipr + G.nrbr + G.nrx +
+                             G.n_trie_mismatch + G.n_alias_div;
+        out("  \"summary\": {\n");
+        out("    \"hooked\": %d,\n", hooked);
+        out("    \"unknown_entry\": %d,\n", ue);
+        out("    \"patched\": %d,\n", patched);
+        out("    \"interpose_pairs\": %d,\n", G.nipr);
+        out("    \"rebinds\": %d,\n", G.nrbr);
+        out("    \"anonymous_rx\": %d,\n", G.nrx);
+        out("    \"trie_mismatches\": %d,\n", G.n_trie_mismatch);
+        out("    \"alias_diverged\": %d,\n", G.n_alias_div);
+        out("    \"images_scanned\": %d,\n", G.nimgs);
+        out("    \"elapsed_sec\": %.3f\n", G.elapsed);
+        out("  },\n");
+        out("  \"signed\": %d,\n", G.sign_status);
+        out("  \"verdict\": \"%s\"\n",
+            total_findings > 0 ?
+            "MODIFIED — investigate flagged entries" :
+            "CLEAN — no user-mode modifications detected");
+    }
     out("}\n");
 }
 
