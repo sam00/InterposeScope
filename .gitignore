@@ -1,9 +1,32 @@
-__pycache__/
-*.pyc
-.DS_Store
+# Compiled artifacts
+build/interposescope
+build/*.o
 *.o
 *.dylib
-build/*.o
-node_modules/
+
+# Python
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+
+# Test/evidence data (never commit scan results)
+evidence/
+iscan_v2.b64
+*.b64
+
+# Documentation with test screenshots
+docs/img/
+docs/EVIDENCE_REPORT.*
+
+# Mythic test scripts (contain credentials)
+test_mythic_*.py
+
+# Environment
 .env
 config.json
+
+# IDE
+.vscode/
+.idea/
